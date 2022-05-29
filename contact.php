@@ -1,3 +1,50 @@
+<?php 
+
+// defining form & error variables and setting to empty
+$nameErr = $emailErr = $enquiryErr = $messageErr = "";
+$name = $email = $enquiry = $message = "";
+
+// form validation
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+    }else {
+        $name = ($_POST["name"]);
+    }
+
+    if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $emailErr = "Invalid email format"; 
+    }else {
+        $email = test_input($_POST["email"]);
+    }
+
+    if (empty($_POST["enquiry"])) {
+        $enquiryErr = "Enquiry type is required";
+    }else {
+        $enquiry = ($_POST["enquiry"]);
+    }
+
+    if (empty($_POST["message"])) {
+        $messageErr = "A message is required";
+    }else {
+        $message = ($_POST["message"]);
+    }
+
+    // mail variables
+    $mailTo = "company@name.com";
+    $messageBody = "From: " . $name . "\r\n" . "Email: " . $email . "\r\n" . "Message: " . $message . "\r\n";
+    $headers = "From: ".$email."\r\n";
+
+    // mail function
+    mail($mailTo, $enquiry, $messageBody, $headers);
+
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en-gb">
 <head>
