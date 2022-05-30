@@ -51,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Contact Us</title>
 </head>
 
@@ -63,15 +64,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <label for="name">Name</label>
 <input type="text" id="name" name="name">
+<span class = "error">* <?php echo $nameErr;?></span>
 
 <label for="email">Email</label>
 <input type="email" id="email" name="email">
+<span class = "error">* <?php echo $emailErr;?></span>
 
 <label for="enquiry">Reason for enquiry</label>
 <input type="text" id="enquiry" name="enquiry">
+<span class = "error">* <?php echo $enquiryErr;?></span>
 
 <label for="message">Message</label>
 <textarea id="message" name="message"></textarea>
+<span class = "error">* <?php echo $messageErr;?></span>
+
+<p><span class="error">*</span> Required fields</p>
 
 <button type="submit" name="submit">Submit Enquiry</button>
 
