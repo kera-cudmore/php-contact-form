@@ -75,11 +75,20 @@ To display a success message I am checking that each of the input variables are 
 
 ![Success Message](documentation/success.png)
 
+- - -
+
+## Code Validation
 ### **Validating PHP Code.**
 
 I used [PHP Code Checker](https://phpcodechecker.com/) to check there were no errors in my PHP code. No errors were detected.
 
 ![PHP Code Validation](documentation/php-code-validation.png)
+
+### **Validating CSS.**
+
+CSS was validated using the [W3C Validator](). There were no errors.
+
+![CSS Validation](documentation/css-validation.png)
 
 - - -
 ## Resources used
