@@ -15,12 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (empty($_POST["email"])) {
         $emailErr = "Email is required";
-    }else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $emailErr = "Invalid email format"; 
     }else {
-        $email = test_input($_POST["email"]);
+        $email = ($_POST["email"]);
     }
-
+    
     if (empty($_POST["enquiry"])) {
         $enquiryErr = "Enquiry type is required";
     }else {
@@ -64,6 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="form-container">
 <form action="" method="POST">
 
+<p class="success centered"><?php echo $successMessage ?></p>
+
 <label for="name">Name<span class = "error"> * <?php echo $nameErr;?></span>
 </label>
 <input type="text" id="name" name="name" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>">
@@ -78,13 +78,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <label for="message">Message<span class = "error"> * <?php echo $messageErr;?></span>
 </label>
-<textarea id="message" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['messsage']; ?>"></textarea>
+<textarea id="message" name="message"></textarea>
 
 <p><span class="error">*</span> Required fields</p>
 
 <button type="submit" name="submit">Submit Enquiry</button>
-
-<p class="success centered"><?php echo $successMessage ?></p>
 
 </form>
 </div>
