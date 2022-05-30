@@ -74,6 +74,13 @@ I have used the PHP function isset() to check whether a field has been filled ou
 To display a success message I am checking that each of the input variables are set with isset. If all variables contain data - the success message will be echoed.
 
 ![Success Message](documentation/success.png)
+
+### **Validating PHP Code.**
+
+I used [PHP Code Checker](https://phpcodechecker.com/) to check there were no errors in my PHP code. No errors were detected.
+
+![PHP Code Validation](documentation/php-code-validation.png)
+
 - - -
 ## Resources used
 
