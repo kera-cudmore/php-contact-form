@@ -41,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // mail function
     mail($mailTo, $enquiry, $messageBody, $headers);
 
+    $successMessage = "Thank you for your enquiry, we will be in touch shortly.";
     }
 ?>
 
@@ -56,33 +57,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<h1>Contact Us</h1>
+<h1 class="centered">Contact Us</h1>
 
-<p>Please use the form below to contact us.</p>
+<p class="centered">Please use the form below to contact us.</p>
 
-<form class="form-container" action="" method="POST">
+<div class="form-container">
+<form action="" method="POST">
 
-<label for="name">Name</label>
-<input type="text" id="name" name="name">
-<span class = "error">* <?php echo $nameErr;?></span>
+<label for="name">Name<span class = "error"> * <?php echo $nameErr;?></span>
+</label>
+<input type="text" id="name" name="name" value="<?php if (isset($_POST['name'])) echo $_POST['name']; ?>">
 
-<label for="email">Email</label>
-<input type="email" id="email" name="email">
-<span class = "error">* <?php echo $emailErr;?></span>
+<label for="email">Email<span class = "error"> * <?php echo $emailErr;?></span>
+</label>
+<input type="email" id="email" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
 
-<label for="enquiry">Reason for enquiry</label>
-<input type="text" id="enquiry" name="enquiry">
-<span class = "error">* <?php echo $enquiryErr;?></span>
+<label for="enquiry">Reason for enquiry<span class = "error"> * <?php echo $enquiryErr;?></span>
+</label>
+<input type="text" id="enquiry" name="enquiry" value="<?php if (isset($_POST['enquiry'])) echo $_POST['enquiry']; ?>">
 
-<label for="message">Message</label>
-<textarea id="message" name="message"></textarea>
-<span class = "error">* <?php echo $messageErr;?></span>
+<label for="message">Message<span class = "error"> * <?php echo $messageErr;?></span>
+</label>
+<textarea id="message" name="message" value="<?php if (isset($_POST['message'])) echo $_POST['messsage']; ?>"></textarea>
 
 <p><span class="error">*</span> Required fields</p>
 
 <button type="submit" name="submit">Submit Enquiry</button>
 
+<p class="success centered"><?php echo $successMessage ?></p>
+
 </form>
+</div>
 
 </body>
 </html>
