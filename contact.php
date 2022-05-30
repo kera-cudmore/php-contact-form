@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // mail function
     mail($mailTo, $enquiry, $messageBody, $headers);
 
-    $successMessage = "Thank you for your enquiry, we will be in touch shortly.";
     }
 ?>
 
@@ -62,7 +61,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="form-container">
 <form action="" method="POST">
 
-<p class="success centered"><?php echo $successMessage ?></p>
+<p class="success centered"><?php if (isset($name) && ($email) && ($enquiry) && ($message)) {
+  echo "Thank you for your enquiry, we will be in touch shortly.";
+} ?></p>
 
 <label for="name">Name<span class = "error"> * <?php echo $nameErr;?></span>
 </label>

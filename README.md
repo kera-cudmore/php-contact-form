@@ -2,6 +2,8 @@
 
 Developer Advocate task for SWGfL interview for Junior Web Developer Position.
 
+![PHP Contact Form](documentation/contact-form.png)
+
 ## Task Instructions
 
 Produce a simple PHP Script that does the following:
@@ -58,15 +60,20 @@ I have chosen to also include the optional argument of headers to include the us
 
 There are a number of different ways to complete validation of a form using PHP, however as a beginner to using PHP I have chosen to use a method that I best understood. This method uses if else loops to check whether the field from the form has been filled out - if the field is empty it will display an error message. If the field is filled out that value will be assigned to a variable which can then be used when sending the email.
 
+In my research I did see a PHP function filter_var($email, FILTER_VALIDATE_EMAIL) which can be used to check whether an email is well formed. I have not included this in my code, but plan to learn how to implement it in the future.
 
-TO ADD
+### **Displaying Error Messages.**
 
-Form action 
+An if else loop is used to validate the form. If a field is empty it will trigger an error message to display on the form. 
 
-displaying error messages
+I have used the PHP function isset() to check whether a field has been filled out and saved to a variable. If it has then the variable will be echoed into the input. This prevents a user having to retype all inputs on the field if they haven't filled out all required fields. The Value attribute cannot be used on a textarea so this is the only field that doesn't include this. 
 
-displaying success message
+![Error Messages](documentation/errors.png)
+### **Displaying a Success Message.**
 
+To display a success message I am checking that each of the input variables are set with isset. If all variables contain data - the success message will be echoed.
+
+![Success Message](documentation/success.png)
 - - -
 ## Resources used
 
